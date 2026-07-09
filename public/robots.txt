@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cellularjourneys.org/sitemap.xml

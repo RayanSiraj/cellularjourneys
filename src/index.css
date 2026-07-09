@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+  --paper: #f8fbfd;
+  --surface: #ffffff;
+  --surface-soft: #eaf2f8;
+  --ink: #153451;
+  --muted: #49627a;
+  --line: #c7d7e4;
+  --brand: #234c7c;
+  --brand-strong: #17395f;
+  --focus: #0b6e91;
+  font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #101b26;
+    --surface: #172838;
+    --surface-soft: #1d3449;
+    --ink: #edf5fa;
+    --muted: #b9cad7;
+    --line: #38516a;
+    --brand: #82aed3;
+    --brand-strong: #a6c9e5;
+    --focus: #8dcff0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  background: var(--paper);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 50;
+  transform: translateY(-160%);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.display {
+  font-family: "Newsreader", Georgia, serif;
+  letter-spacing: -0.025em;
+}
+
+.page-shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    padding-inline: 2rem;
+  }
+}
+
+.section {
+  padding-block: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 6rem;
+  }
+}
+
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.brand-link {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.brand-link:hover {
+  color: var(--brand-strong);
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    background-color 140ms ease,
+    color 140ms ease,
+    border-color 140ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: #234c7c;
+  color: #f8fbfd;
+}
+
+.btn-primary:hover {
+  background: #17395f;
+}
+
+.btn-secondary {
+  border-color: var(--brand);
+  background: var(--surface);
+  color: var(--brand-strong);
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-secondary {
+    color: var(--ink);
+  }
+}
+
+.btn-secondary:hover {
+  background: var(--surface-soft);
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field > label,
+.legend-label {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--muted);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.65rem 0.75rem;
+}
+
+.input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+textarea.input {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.helper {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.form-section {
+  display: grid;
+  gap: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .form-section {
+    padding: 2rem;
+  }
+}
+
+.cell-window {
+  overflow: hidden;
+  border-radius: 44% 1rem 1rem 44%;
+  background: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .cell-window {
+    border-radius: 1rem;
+  }
+}
