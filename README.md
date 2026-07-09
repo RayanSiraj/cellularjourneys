@@ -37,6 +37,20 @@ npm run typecheck
 npm run build
 ```
 
+## Deploy to Vercel
+
+1. Import `RayanSiraj/cellularjourneys` in Vercel.
+2. Keep the repository root as the project root.
+3. Deploy. The checked-in `vercel.json` selects Vite, runs
+   `npm run build`, serves `dist`, preserves `/api/forms`, and sends other
+   application routes to `index.html`.
+
+No dashboard build overrides are required. The site can deploy without form
+credentials, but form submissions will return the safe unconfigured-delivery
+message until the three variables below are added in Vercel Project Settings,
+under Environment Variables. Add them to Production and Preview, then
+redeploy.
+
 ## Form delivery
 
 Forms post privately to `/api/forms`. The endpoint sends submissions by email
