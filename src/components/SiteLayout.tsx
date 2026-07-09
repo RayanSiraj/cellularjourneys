@@ -63,16 +63,18 @@ export function SiteLayout() {
               Donate
             </NavLink>
           </nav>
-          <button
-            className="btn btn-secondary lg:hidden"
-            type="button"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? "Close navigation" : "Open navigation"}
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? <X size={22} aria-hidden /> : <List size={22} aria-hidden />}
-          </button>
+          <div className="lg:hidden">
+            <button
+              className="btn btn-secondary"
+              type="button"
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? "Close navigation" : "Open navigation"}
+              onClick={() => setOpen((value) => !value)}
+            >
+              {open ? <X size={22} aria-hidden /> : <List size={22} aria-hidden />}
+            </button>
+          </div>
         </div>
         {open && (
           <nav
