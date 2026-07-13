@@ -22,17 +22,15 @@ export function HomePage() {
         title="Cancer education and scientific literacy"
         description="Cellular Journeys is a nonprofit advancing cancer education, scientific literacy, research awareness, and community impact."
       />
-      <section className="page-shell grid min-h-[calc(100dvh-5rem)] items-center gap-10 py-12 md:grid-cols-[0.9fr_1.1fr] md:py-16">
-        <div className="max-w-xl">
-          <p className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--brand)]">
+      <section className="home-hero page-shell">
+        <div className="home-hero__copy">
+          <p className="home-hero__kicker">
             Learn. Create. Inspire. Impact.
           </p>
-          <h1 className="display mt-4 text-5xl font-bold leading-[1.03] md:text-6xl">
+          <h1 className="display">
             Knowledge turns science into action.
           </h1>
-          <p className="mt-6 max-w-lg text-xl leading-8 text-muted">
-            {mission}
-          </p>
+          <p className="home-hero__mission">{mission}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link className="btn btn-primary" to="/get-involved">
               Get Involved <ArrowRight size={18} aria-hidden />
@@ -42,15 +40,16 @@ export function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="cell-window min-h-80 md:min-h-[34rem]">
-          <img
-            src="/images/cellular-journeys-hero.webp"
-            alt=""
-            width="1536"
-            height="1024"
-            fetchPriority="high"
-            className="h-full min-h-80 w-full object-cover md:min-h-[34rem]"
-          />
+        <div className="specimen-stage">
+          <div className="specimen-lens">
+            <img
+              src="/images/cellular-journeys-hero-overhaul.webp"
+              alt=""
+              width="1536"
+              height="1024"
+              fetchPriority="high"
+            />
+          </div>
         </div>
       </section>
 
@@ -61,14 +60,14 @@ export function HomePage() {
             intro="Join Cellular Journeys in Jacksonville for cancer education, community connection, and opportunities to get involved."
           />
           <div className="mt-8 grid gap-6 md:grid-cols-[0.7fr_1.3fr]">
-            <div className="surface bg-[var(--surface-soft)] p-6">
+            <div className="event-date-block">
               <CalendarBlank
                 size={32}
                 weight="duotone"
                 className="text-[var(--brand)]"
                 aria-hidden
               />
-              <p className="mt-5 text-2xl font-bold">July 18, 2026</p>
+              <p className="utility mt-5 text-lg font-semibold">July 18, 2026</p>
               <p className="mt-2 text-muted">Jacksonville, Florida</p>
               <p className="mt-1 text-muted">Location: TBD</p>
             </div>
@@ -100,9 +99,7 @@ export function HomePage() {
               href={platform.url}
               target="_blank"
               rel="noreferrer"
-              className={`surface p-6 no-underline transition-transform hover:-translate-y-1 ${
-                index === 0 ? "bg-[var(--surface-soft)]" : ""
-              }`}
+              className={`platform-preview${index === 0 ? " featured" : ""}`}
             >
               <GlobeHemisphereWest
                 size={28}

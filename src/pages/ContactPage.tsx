@@ -19,7 +19,7 @@ export function ContactPage() {
         intro="Send a question about programs, governance, partnerships, or media."
       />
       <section className="page-shell section grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-        <aside className="surface h-fit bg-[var(--surface-soft)] p-7">
+        <aside className="address-panel">
           <MapPin
             size={32}
             weight="duotone"

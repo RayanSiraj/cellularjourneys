@@ -323,7 +323,7 @@ export function ChoiceGroup({
             <label
               key={value}
               htmlFor={id}
-              className="flex min-h-11 items-start gap-3 rounded-lg border border-[var(--line)] bg-[var(--paper)] p-3"
+              className="flex min-h-11 items-start gap-3 rounded-[var(--radius-control)] border border-[var(--line)] bg-[var(--paper)] p-3"
             >
               <input
                 id={id}
@@ -331,7 +331,7 @@ export function ChoiceGroup({
                 type={type}
                 value={value}
                 required={required && type === "radio"}
-                className="mt-1 size-4 accent-[#234c7c]"
+                className="mt-1 size-4"
               />
               <span>{label}</span>
             </label>

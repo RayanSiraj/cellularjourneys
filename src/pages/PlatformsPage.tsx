@@ -47,9 +47,9 @@ export function PlatformsPage() {
             return (
               <article
                 key={platform.name}
-                className={`surface p-6 md:p-7 ${
+                className={`platform-card ${
                   index === 0
-                    ? "bg-[var(--surface-soft)] md:col-span-2 md:grid md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-10"
+                    ? "featured md:col-span-2 md:grid md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-10"
                     : ""
                 }`}
               >
@@ -93,7 +93,7 @@ export function PlatformsPage() {
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {comingSoon.map((item) => (
               <div
-                className="surface flex min-h-28 items-center gap-4 p-5"
+                className="coming-soon-item"
                 key={item}
               >
                 <Globe

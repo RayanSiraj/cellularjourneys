@@ -283,7 +283,7 @@ function InternshipApplicationForm() {
           <div className="grid gap-3 sm:grid-cols-3">
             {["In-Person", "Remote", "Hybrid"].map((option) => (
               <label
-                className="flex min-h-11 items-center gap-3 rounded-lg border border-[var(--line)] bg-[var(--paper)] p-3"
+                className="flex min-h-11 items-center gap-3 rounded-[var(--radius-control)] border border-[var(--line)] bg-[var(--paper)] p-3"
                 key={option}
               >
                 <input
@@ -292,7 +292,7 @@ function InternshipApplicationForm() {
                   value={option}
                   required
                   onChange={() => setParticipation(option)}
-                  className="size-4 accent-[#234c7c]"
+                  className="size-4"
                 />
                 {option}
               </label>
@@ -405,13 +405,13 @@ function InternshipApplicationForm() {
 
       <section className="form-section">
         <h3 className="display text-2xl font-bold">Certification and signatures</h3>
-        <label className="flex items-start gap-3 rounded-lg border border-[var(--line)] p-4">
+        <label className="flex items-start gap-3 rounded-[var(--radius-control)] border border-[var(--line)] p-4">
           <input
             type="checkbox"
             name="certification"
             value="Certified"
             required
-            className="mt-1 size-4 accent-[#234c7c]"
+            className="mt-1 size-4"
           />
           <span>
             I certify that the information in this application is complete and
@@ -526,7 +526,7 @@ function ConsentForm() {
           Consent, release, and authorization
         </h3>
         {/* TODO(client): replace section labels with approved legal language before launch. */}
-        <p className="rounded-lg border border-[var(--line)] bg-[var(--surface-soft)] p-4 text-muted">
+        <p className="rounded-[var(--radius-panel)] border border-[var(--line)] bg-[var(--surface-soft)] p-4 text-muted">
           Final approved legal language is required before launch. Initial each
           item to record acknowledgment of the listed consent area.
         </p>
@@ -598,7 +598,7 @@ export function InternshipPage() {
           width="1536"
           height="1024"
           loading="lazy"
-          className="surface aspect-[4/3] w-full object-cover"
+          className="program-image aspect-[4/3] w-full object-cover"
         />
         <div>
           <SectionHeading title="About the program" />
@@ -618,7 +618,7 @@ export function InternshipPage() {
             <SectionHeading title="What Interns Do" />
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
               {internActivities.map((item) => (
-                <div className="surface p-4" key={item}>
+                <div className="activity-item" key={item}>
                   <Flask
                     size={24}
                     weight="duotone"
@@ -645,7 +645,7 @@ export function InternshipPage() {
                 </div>
               ))}
             </div>
-            <div className="surface mt-9 bg-[var(--surface-soft)] p-6">
+            <div className="philosophy-panel mt-9">
               <h3 className="display text-2xl font-bold">Program Philosophy</h3>
               {/* TODO(client): provide the approved Program Philosophy paragraph. */}
               <p className="mt-3 text-muted">
@@ -662,7 +662,7 @@ export function InternshipPage() {
           intro="The program welcomes students across educational systems and geographic locations."
         />
         <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <article className="surface bg-[var(--surface-soft)] p-6">
+          <article className="eligibility-item featured">
             <UsersThree
               size={30}
               weight="duotone"
@@ -677,7 +677,7 @@ export function InternshipPage() {
               and recent graduates serving as volunteers or mentors.
             </p>
           </article>
-          <article className="surface p-6">
+          <article className="eligibility-item">
             <Globe
               size={30}
               weight="duotone"
@@ -691,7 +691,7 @@ export function InternshipPage() {
               internet access and a device.
             </p>
           </article>
-          <article className="surface p-6">
+          <article className="eligibility-item">
             <BookOpen
               size={30}
               weight="duotone"
@@ -706,7 +706,7 @@ export function InternshipPage() {
             </p>
           </article>
         </div>
-        <div className="surface mt-6 p-6">
+        <div className="qualification-note mt-6">
           {/* TODO(client): provide the approved required qualities and preferred qualifications lists. */}
           <h3 className="text-xl font-bold">
             Required qualities and preferred qualifications
@@ -723,7 +723,7 @@ export function InternshipPage() {
             title="Internship Cycles"
             intro="Applications are reviewed on a rolling basis after each deadline."
           />
-          <div className="mt-8 overflow-x-auto rounded-2xl border border-[var(--line)] bg-[var(--surface)]">
+          <div className="mt-8 overflow-x-auto rounded-[var(--radius-panel)] border border-[var(--line)] bg-[var(--surface)]">
             <table className="w-full min-w-[42rem] border-collapse text-left">
               <thead className="bg-[var(--surface-soft)]">
                 <tr>

@@ -56,7 +56,7 @@ export function GovernancePage() {
         <SectionHeading title="Our Commitment to Accountability" />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {accountability.map((item) => (
-            <div className="surface flex gap-4 p-5" key={item}>
+            <div className="accountability-item" key={item}>
               <ShieldCheck
                 size={25}
                 weight="duotone"
@@ -78,7 +78,7 @@ export function GovernancePage() {
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {boardOversight.map((item) => (
               <p
-                className="rounded-lg border-l-4 border-[var(--brand)] bg-[var(--surface-soft)] px-5 py-4 font-bold"
+                className="research-note font-bold"
                 key={item}
               >
                 {item}
@@ -98,7 +98,7 @@ export function GovernancePage() {
         />
         <div className="mt-9 grid gap-7 md:grid-cols-2">
           {Object.entries(documentLibrary).map(([category, documents]) => (
-            <section className="surface p-6" key={category}>
+            <section className="document-group" key={category}>
               <h3 className="display text-2xl font-bold">{category}</h3>
               <div className="mt-5 grid gap-4">
                 {documents.map((document) => (
@@ -138,7 +138,7 @@ export function GovernancePage() {
 
       <section className="border-y border-[var(--line)] bg-[var(--surface-soft)]">
         <div className="page-shell section grid gap-8 md:grid-cols-2">
-          <article className="surface p-7">
+          <article className="policy-item">
             <h2 className="display text-3xl font-bold">Annual Impact Reports</h2>
             <p className="mt-4 leading-7 text-muted">
               Future reports will describe educational programs, internships,
@@ -146,7 +146,7 @@ export function GovernancePage() {
               figures are published until they are verified and approved.
             </p>
           </article>
-          <article className="surface p-7">
+          <article className="policy-item">
             <h2 className="display text-3xl font-bold">
               Conflict of Interest Policy
             </h2>
@@ -156,7 +156,7 @@ export function GovernancePage() {
               added when supplied.
             </p>
           </article>
-          <article className="surface p-7">
+          <article className="policy-item">
             <h2 className="display text-3xl font-bold">
               Diversity, Equity, Inclusion, and Respect
             </h2>
@@ -166,7 +166,7 @@ export function GovernancePage() {
               supplied.
             </p>
           </article>
-          <article className="surface p-7">
+          <article className="policy-item">
             <h2 className="display text-3xl font-bold">
               Stewardship of Donations
             </h2>

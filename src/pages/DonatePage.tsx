@@ -36,9 +36,7 @@ export function DonatePage() {
         <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {waysToGive.map((item, index) => (
             <article
-              className={`surface p-6 ${
-                index === 0 || index === 6 ? "bg-[var(--surface-soft)]" : ""
-              }`}
+              className={`give-item${index === 0 || index === 6 ? " featured" : ""}`}
               key={item}
             >
               <HandHeart

@@ -60,16 +60,16 @@ export function EventsPage() {
       />
 
       <section className="page-shell section">
-        <article className="surface overflow-hidden bg-[var(--surface)]">
+        <article className="event-feature">
           <div className="grid md:grid-cols-[0.8fr_1.2fr]">
-            <div className="bg-[var(--surface-soft)] p-7 md:p-10">
+            <div className="event-date-block p-7 md:p-10">
               <CalendarBlank
                 size={38}
                 weight="duotone"
                 className="text-[var(--brand)]"
                 aria-hidden
               />
-              <p className="mt-6 text-lg font-bold">July 18, 2026</p>
+              <p className="utility mt-6 text-base font-semibold">July 18, 2026</p>
               <p className="mt-2 flex items-center gap-2 text-muted">
                 <MapPin size={20} aria-hidden />
                 Jacksonville, Florida
@@ -110,9 +110,7 @@ export function EventsPage() {
             {summerEvents.map((entry, index) => (
               <article
                 key={entry.month}
-                className={`surface p-6 ${
-                  index === 1 ? "bg-[var(--surface-soft)]" : ""
-                }`}
+                className={`season-card${index === 1 ? " featured" : ""}`}
               >
                 <h3 className="display text-3xl font-bold">{entry.month}</h3>
                 <div className="mt-5 grid gap-4">
@@ -136,7 +134,7 @@ export function EventsPage() {
               {signatureEvents.map((event) => (
                 <div
                   key={event}
-                  className="rounded-lg border-l-4 border-[var(--brand)] bg-[var(--surface)] px-5 py-4 font-bold"
+                  className="research-note font-bold"
                 >
                   {event}
                 </div>
@@ -165,7 +163,7 @@ export function EventsPage() {
           />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {communityPresentations.map((topic) => (
-              <div className="surface flex items-center gap-4 p-5" key={topic}>
+              <div className="topic-item" key={topic}>
                 <Megaphone
                   size={26}
                   weight="duotone"
@@ -230,7 +228,7 @@ export function EventsPage() {
         />
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {volunteerOpportunities.map((item) => (
-            <article className="surface p-5" key={item}>
+            <article className="opportunity-item" key={item}>
               <UsersThree
                 size={28}
                 weight="duotone"
@@ -297,7 +295,7 @@ export function EventsPage() {
           />
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {highlightPlaceholders.map((title) => (
-              <article className="surface overflow-hidden" key={title}>
+              <article className="highlight-card" key={title}>
                 {/* TODO(client): add a real, approved event photograph. */}
                 <div className="flex aspect-[4/3] items-center justify-center bg-[var(--surface-soft)]">
                   <ImageSquare

@@ -19,10 +19,8 @@ function Wordmark() {
       className="flex shrink-0 flex-col leading-none no-underline"
       aria-label="Cellular Journeys home"
     >
-      <span className="display text-xl font-bold tracking-tight text-[var(--brand-strong)]">
-        Cellular Journeys
-      </span>
-      <span className="mt-1 text-xs font-bold text-[var(--muted)]">
+      <span className="wordmark-name">Cellular Journeys</span>
+      <span className="wordmark-tagline">
         Learn. Create. Inspire. Impact.
       </span>
     </NavLink>
@@ -40,20 +38,16 @@ export function SiteLayout() {
 
   return (
     <div className="min-h-[100dvh]">
-      <header className="sticky top-0 z-30 border-b border-[var(--line)] bg-[color:var(--paper)]/95 backdrop-blur-sm">
-        <div className="page-shell flex h-20 items-center justify-between gap-5">
+      <header className="site-header sticky top-0 z-30">
+        <div className="page-shell flex h-[4.5rem] items-center justify-between gap-5">
           <Wordmark />
-          <nav className="hidden items-center gap-4 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
             {primaryNav.map(([label, to]) => (
               <NavLink
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `text-sm font-bold no-underline ${
-                    isActive
-                      ? "text-[var(--brand-strong)] underline decoration-2 underline-offset-8"
-                      : "text-[var(--muted)] hover:text-[var(--ink)]"
-                  }`
+                  `primary-nav-link${isActive ? " active" : ""}`
                 }
               >
                 {label}
@@ -79,14 +73,16 @@ export function SiteLayout() {
         {open && (
           <nav
             id="mobile-nav"
-            className="page-shell grid gap-2 border-t border-[var(--line)] py-4 lg:hidden"
+            className="page-shell grid border-t border-[var(--line)] py-4 lg:hidden"
             aria-label="Mobile"
           >
             {primaryNav.map(([label, to]) => (
               <NavLink
                 key={to}
                 to={to}
-                className="rounded-lg px-3 py-3 font-bold no-underline hover:bg-[var(--surface-soft)]"
+                className={({ isActive }) =>
+                  `mobile-nav-link${isActive ? " active" : ""}`
+                }
               >
                 {label}
               </NavLink>
@@ -100,18 +96,18 @@ export function SiteLayout() {
       <main id="main-content">
         <Outlet />
       </main>
-      <footer className="border-t border-[var(--line)] bg-[var(--surface)]">
-        <div className="page-shell grid gap-10 py-12 md:grid-cols-[1.3fr_1fr_1fr]">
+      <footer className="site-footer">
+        <div className="page-shell grid gap-10 py-14 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <Wordmark />
             <p className="mt-5 max-w-md text-sm text-muted">
               A 501(c)(3) nonprofit advancing cancer education, scientific
               literacy, research awareness, and community engagement.
             </p>
-            <p className="mt-3 text-sm text-muted">EIN 33-4407653</p>
+            <p className="utility mt-3 text-xs text-muted">EIN 33-4407653</p>
           </div>
           <div>
-            <h2 className="font-bold">Visit</h2>
+            <h2 className="display text-lg font-bold">Visit</h2>
             <address className="mt-4 text-sm not-italic text-muted">
               1 UNF Drive, Building 59
               <br />
@@ -121,7 +117,7 @@ export function SiteLayout() {
             </address>
           </div>
           <div>
-            <h2 className="font-bold">Connect</h2>
+            <h2 className="display text-lg font-bold">Connect</h2>
             <div className="mt-4 grid gap-2 text-sm">
               <NavLink className="brand-link" to="/contact">
                 Contact Us
