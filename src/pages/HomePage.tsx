@@ -41,12 +41,12 @@ export function HomePage() {
           </div>
         </div>
         <div className="specimen-stage">
-          <div className="specimen-lens">
+          <div className="brand-lens">
             <img
-              src="/images/cellular-journeys-hero-overhaul.webp"
-              alt=""
-              width="1536"
-              height="1024"
+              src="/images/cellular-journeys-logo.webp"
+              alt="Cellular Journeys"
+              width="1200"
+              height="561"
               fetchPriority="high"
             />
           </div>

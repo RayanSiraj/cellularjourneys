@@ -119,8 +119,10 @@ export function GovernancePage() {
                       <a
                         className="brand-link inline-flex items-center gap-1 font-bold"
                         href={document.href}
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        Download
+                        View
                         <ArrowSquareOut size={17} aria-hidden />
                       </a>
                     ) : (

@@ -219,22 +219,20 @@ p {
   backdrop-filter: blur(14px);
 }
 
-.wordmark-name {
-  color: var(--brand-strong);
-  font-family: "Archivo Variable", sans-serif;
-  font-size: 1.1rem;
-  font-variation-settings: "wdth" 92;
-  font-weight: 760;
-  letter-spacing: -0.035em;
+.brand-lockup {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  text-decoration: none;
 }
 
-.wordmark-tagline {
-  margin-top: 0.2rem;
-  color: var(--muted);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.64rem;
-  font-weight: 500;
-  letter-spacing: 0.045em;
+.brand-lockup img {
+  height: 2.9rem;
+  width: auto;
+}
+
+.site-footer .brand-lockup img {
+  height: 3rem;
 }
 
 .primary-nav-link {
@@ -742,6 +740,22 @@ p {
   object-position: 63% 52%;
 }
 
+.brand-lens {
+  width: min(82vw, 30rem);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.75rem, 5vw, 2.75rem);
+  background: #ffffff;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-panel);
+  box-shadow: 0 1.5rem 4rem rgb(15 42 61 / 0.12);
+}
+
+.brand-lens img {
+  width: 100%;
+  height: auto;
+}
+
 @media (min-width: 860px) {
   .home-hero {
     grid-template-columns: minmax(0, 0.92fr) minmax(26rem, 1.08fr);
@@ -755,6 +769,10 @@ p {
 
   .specimen-lens {
     width: min(41vw, 35rem);
+  }
+
+  .brand-lens {
+    width: min(41vw, 32rem);
   }
 }
 
@@ -850,6 +868,18 @@ p {
   content: "";
 }
 
+.board-photo {
+  width: 5.5rem;
+  height: 5.5rem;
+  flex: none;
+  object-fit: cover;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  outline: 1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+  outline-offset: -0.45rem;
+  background: var(--surface);
+}
+
 @media (min-width: 768px) {
   .board-grid {
     grid-template-columns: 1fr 1fr;
@@ -872,7 +902,8 @@ p {
     padding: 2.5rem;
   }
 
-  .board-card:first-child .board-placeholder {
+  .board-card:first-child .board-placeholder,
+  .board-card:first-child .board-photo {
     width: 7rem;
     height: 7rem;
   }

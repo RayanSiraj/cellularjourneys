@@ -12,17 +12,6 @@ import {
   values,
 } from "../data/content";
 
-function memberInitials(name: string) {
-  return name
-    .replace(/^Dr\.\s+/, "")
-    .split(",")[0]
-    .split(/\s+/)
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
-
 export function AboutPage() {
   return (
     <>
@@ -119,14 +108,14 @@ export function AboutPage() {
           <div className="board-grid mt-10">
             {boardMembers.map((member) => (
               <article key={member.name} className="board-card">
-                {/* TODO(client): replace the neutral avatar with a real board headshot. */}
-                <span
-                  className="board-placeholder"
-                  aria-label="Headshot not yet provided"
-                  role="img"
-                >
-                  {memberInitials(member.name)}
-                </span>
+                <img
+                  className="board-photo"
+                  src={member.photo}
+                  alt={`Portrait of ${member.name}`}
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                />
                 <div>
                   <h3 className="text-xl font-bold">{member.name}</h3>
                   <p className="mt-1 font-bold text-[var(--brand-strong)]">

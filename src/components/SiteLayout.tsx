@@ -12,17 +12,18 @@ const primaryNav = [
 ] as const;
 
 function Wordmark() {
-  // TODO(client): insert the real logo file when supplied.
   return (
     <NavLink
       to="/"
-      className="flex shrink-0 flex-col leading-none no-underline"
+      className="brand-lockup"
       aria-label="Cellular Journeys home"
     >
-      <span className="wordmark-name">Cellular Journeys</span>
-      <span className="wordmark-tagline">
-        Learn. Create. Inspire. Impact.
-      </span>
+      <img
+        src="/images/cellular-journeys-logo.webp"
+        alt=""
+        width="1200"
+        height="561"
+      />
     </NavLink>
   );
 }
