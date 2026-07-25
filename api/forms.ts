@@ -290,7 +290,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const destination = process.env.FORM_DESTINATION_EMAIL;
+  const destination =
+    process.env.FORM_DESTINATION_EMAIL || "cellularjourneys@gmail.com";
   const from = process.env.FORM_FROM_EMAIL;
   if (!apiKey || !destination || !from) {
     res.status(503).json({
