@@ -52,23 +52,6 @@ export function GovernancePage() {
         intro="Cellular Journeys is committed to accountability, responsible stewardship, accurate information, and ethical decision-making."
       />
 
-      <section className="page-shell section">
-        <SectionHeading title="Our Commitment to Accountability" />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {accountability.map((item) => (
-            <div className="accountability-item" key={item}>
-              <ShieldCheck
-                size={25}
-                weight="duotone"
-                className="shrink-0 text-[var(--brand)]"
-                aria-hidden
-              />
-              <p className="font-bold leading-6">{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="border-y border-[var(--line)] bg-[var(--surface)]">
         <div className="page-shell section">
           <SectionHeading
@@ -178,6 +161,23 @@ export function GovernancePage() {
               ))}
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="page-shell section">
+        <SectionHeading title="Our Commitment to Accountability" />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {accountability.map((item) => (
+            <div className="accountability-item" key={item}>
+              <ShieldCheck
+                size={25}
+                weight="duotone"
+                className="shrink-0 text-[var(--brand)]"
+                aria-hidden
+              />
+              <p className="font-bold leading-6">{item}</p>
+            </div>
+          ))}
         </div>
       </section>
 

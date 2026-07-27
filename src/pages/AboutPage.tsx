@@ -1,3 +1,4 @@
+import { ArrowDown } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import {
   Callout,
@@ -26,6 +27,15 @@ export function AboutPage() {
 
       <section className="page-shell section">
         <SectionHeading title="Who We Are" />
+        <p className="mt-4">
+          <a
+            className="brand-link inline-flex items-center gap-1 font-bold"
+            href="#board-of-directors"
+          >
+            Meet our Board of Directors
+            <ArrowDown size={16} aria-hidden />
+          </a>
+        </p>
         <div className="mt-7 max-w-4xl space-y-5 text-lg leading-8 text-muted">
           <p>
             Cellular Journeys is a nonprofit organization dedicated to
@@ -99,7 +109,10 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--line)] bg-[var(--surface-soft)]">
+      <section
+        id="board-of-directors"
+        className="scroll-mt-24 border-y border-[var(--line)] bg-[var(--surface-soft)]"
+      >
         <div className="page-shell section">
           <SectionHeading
             title="Board of Directors"

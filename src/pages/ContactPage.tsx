@@ -34,10 +34,20 @@ export function ContactPage() {
             <br />
             Jacksonville, FL 32224
           </address>
-          {/* TODO(client): provide the public contact email and phone number. */}
-          <p className="mt-6 text-sm text-muted">
-            Public email and phone details are coming soon.
-          </p>
+          <h2 className="mt-6 text-xl font-bold">Contact</h2>
+          <div className="mt-3 grid gap-1 leading-7 text-muted">
+            <p className="font-bold text-[var(--ink)]">Fatima K. Rehman, Ph.D.</p>
+            <p>
+              <a className="brand-link font-bold" href="mailto:cellularjourneys@gmail.com">
+                cellularjourneys@gmail.com
+              </a>
+            </p>
+            <p>
+              <a className="brand-link font-bold" href="tel:+13123435386">
+                (312) 343-5386
+              </a>
+            </p>
+          </div>
         </aside>
         <div className="form-section">
           <SecureForm formName="contact" submitLabel="Send message">
