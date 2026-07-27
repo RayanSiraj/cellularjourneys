@@ -155,33 +155,16 @@ export type DocumentItem = {
   href?: string;
 };
 
-// TODO(client): add approved public files and their final asset filenames.
 export const documentLibrary: Record<string, DocumentItem[]> = {
   Governance: [
-    { name: "Board of Directors List" },
     { name: "Bylaws", href: "/docs/cellular-journeys-bylaws.pdf" },
-    { name: "Conflict of Interest Policy" },
-    { name: "Strategic Plan" },
     { name: "Florida Annual Report", href: "/docs/florida-annual-report-2026.pdf" },
   ],
   Financials: [
-    { name: "IRS Determination Letter" },
     { name: "IRS Tax-Exempt Status Confirmation", href: "/docs/irs-tax-exempt-status.pdf" },
     { name: "Annual Financial Report", href: "/docs/annual-financial-summary-2025.pdf" },
-    { name: "Annual Balance Sheet" },
-    { name: "Form 990" },
-  ],
-  Impact: [
-    { name: "Annual Impact Report" },
-    { name: "Internship Program Outcomes" },
-    { name: "Community Outreach Metrics" },
-    { name: "CancerQuest Reach and Analytics" },
-    { name: "BiologyBasics Reach and Analytics" },
   ],
   Policies: [
-    { name: "Privacy Policy" },
-    { name: "Website Terms of Use" },
-    { name: "Volunteer Policies" },
     { name: "Certificate of Liability Insurance", href: "/docs/certificate-of-liability-insurance.pdf" },
   ],
 };
