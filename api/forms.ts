@@ -180,29 +180,6 @@ function parseSubmission(body: unknown): Submission | null {
   };
 }
 
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function renderFields(fields: Record<string, string | string[]>) {
-  return Object.entries(fields)
-    .filter(([key]) => key !== "website")
-    .map(([key, value]) => {
-      const displayValue = Array.isArray(value) ? value.join(", ") : value;
-      return `<tr><th style="padding:8px;text-align:left;vertical-align:top">${escapeHtml(
-        key,
-      )}</th><td style="padding:8px;white-space:pre-wrap">${escapeHtml(
-        displayValue,
-      )}</td></tr>`;
-    })
-    .join("");
-}
-
 function fieldValue(
   fields: Record<string, string | string[]>,
   key: string,
@@ -289,11 +266,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     return;
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const destination =
-    process.env.FORM_DESTINATION_EMAIL || "cellularjourneys@gmail.com";
-  const from = process.env.FORM_FROM_EMAIL;
-  if (!apiKey || !destination || !from) {
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+  if (!accessKey) {
     res.status(503).json({
       message:
         "Form delivery is not configured yet. Please contact Cellular Journeys after launch details are added.",
@@ -302,30 +276,36 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   }
 
   const safeFormName = submission.formName.replace(/[^a-zA-Z0-9-]/g, "");
-  const response = await fetch("https://api.resend.com/emails", {
+  const payload: Record<string, string> = {};
+  for (const [key, value] of Object.entries(submission.fields)) {
+    if (key === "website") continue;
+    payload[key] = Array.isArray(value) ? value.join(", ") : value;
+  }
+  if (attachments.length > 0) {
+    payload.uploaded_file = `${attachments[0].filename} (uploaded on the website; request directly if needed)`;
+  }
+  payload.access_key = accessKey;
+  payload.subject = `Cellular Journeys form: ${safeFormName}`;
+  payload.from_name = "Cellular Journeys Website";
+
+  const response = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
+      Accept: "application/json",
     },
-    body: JSON.stringify({
-      from,
-      to: [destination],
-      subject: `Cellular Journeys form: ${safeFormName}`,
-      html: `<h1>New ${escapeHtml(
-        safeFormName,
-      )} submission</h1><table style="border-collapse:collapse">${renderFields(
-        submission.fields,
-      )}</table>`,
-      attachments: attachments.map((attachment) => ({
-        filename: attachment.filename.replace(/[^a-zA-Z0-9._-]/g, "_"),
-        content: attachment.content,
-        content_type: attachment.contentType,
-      })),
-    }),
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
+    res.status(502).json({
+      message: "The form could not be delivered. Please try again later.",
+    });
+    return;
+  }
+
+  const result = (await response.json()) as { success?: boolean };
+  if (!result.success) {
     res.status(502).json({
       message: "The form could not be delivered. Please try again later.",
     });
