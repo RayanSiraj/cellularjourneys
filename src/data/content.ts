@@ -167,7 +167,7 @@ export const documentLibrary: Record<string, DocumentItem[]> = {
   Financials: [
     { name: "IRS Determination Letter" },
     { name: "IRS Tax-Exempt Status Confirmation", href: "/docs/irs-tax-exempt-status.pdf" },
-    { name: "Annual Financial Report" },
+    { name: "Annual Financial Report", href: "/docs/annual-financial-summary-2025.pdf" },
     { name: "Annual Balance Sheet" },
     { name: "Form 990" },
   ],
