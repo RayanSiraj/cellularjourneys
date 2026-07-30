@@ -6,6 +6,8 @@ import {
   useState,
 } from "react";
 
+const WEB3FORMS_ACCESS_KEY = "61ea72c3-7b1e-4083-91a5-55b79cdc4d0c";
+
 type FormStatus =
   | { state: "idle" }
   | { state: "submitting" }
@@ -91,19 +93,44 @@ export function SecureForm({
         else fields[key] = [existing, value];
       }
 
-      const response = await fetch("/api/forms", {
+      if (fields.website) {
+        form.reset();
+        setStatus({ state: "success", message: "Your form was sent." });
+        return;
+      }
+
+      const submission: Record<string, string> = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `Cellular Journeys form: ${formName}`,
+        from_name: "Cellular Journeys Website",
+      };
+      for (const [key, value] of Object.entries(fields)) {
+        if (key === "website") continue;
+        submission[key] = Array.isArray(value) ? value.join(", ") : value;
+      }
+      if (attachments.length > 0) {
+        submission.uploaded_file = `${attachments[0].filename} (uploaded on the website; request directly if needed)`;
+      }
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formName, fields, attachments }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(submission),
       });
-      const payload = (await response.json()) as { message?: string };
-      if (!response.ok) {
+      const payload = (await response.json()) as {
+        success?: boolean;
+        message?: string;
+      };
+      if (!response.ok || !payload.success) {
         throw new Error(payload.message || "The form could not be sent.");
       }
       form.reset();
       setStatus({
         state: "success",
-        message: payload.message || "Your form was sent.",
+        message: "Your form was sent securely.",
       });
       formRef.current?.querySelector<HTMLElement>("input, select, textarea")?.focus();
     } catch (error: unknown) {
