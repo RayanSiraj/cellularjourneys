@@ -1,7 +1,5 @@
-import { HandHeart } from "@phosphor-icons/react";
-import { Link } from "react-router-dom";
+import { ArrowSquareOut, HandHeart } from "@phosphor-icons/react";
 import {
-  Callout,
   PageHeader,
   SectionHeading,
   Seo,
@@ -50,20 +48,52 @@ export function DonatePage() {
           ))}
         </div>
       </section>
-      <div className="page-shell pb-20">
-        <Callout
-          title="Online giving is not yet connected."
-          action={
-            <Link className="btn btn-primary" to="/contact">
-              Contact Us
-            </Link>
-          }
-        >
-          {/* TODO(client): connect the approved payment processor and legal donation language. */}
-          A payment processor has not been selected. Contact Cellular Journeys
-          with questions about supporting the organization.
-        </Callout>
-      </div>
+      <section className="page-shell section pb-20">
+        <SectionHeading title="Make a Gift" />
+        <div className="mt-9 grid gap-6 md:grid-cols-2">
+          <article className="surface flex flex-col gap-4 p-7">
+            <h2 className="display text-2xl font-bold">Donate online</h2>
+            <p className="leading-7 text-muted">
+              Give securely through PayPal using any major debit or credit card,
+              or your PayPal account.
+            </p>
+            <div>
+              <a
+                className="btn btn-primary inline-flex items-center gap-2"
+                href="https://www.paypal.com/ncp/payment/WQT7X8JPZTDDA"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Donate with PayPal
+                <ArrowSquareOut size={18} aria-hidden />
+              </a>
+            </div>
+          </article>
+          <article className="surface flex flex-col gap-4 p-7">
+            <h2 className="display text-2xl font-bold">Donate by mail</h2>
+            <p className="leading-7 text-muted">
+              If you prefer to give by standard mail, please make checks payable
+              to <strong>Cellular Journeys Inc.</strong> and mail to:
+            </p>
+            <address className="not-italic leading-7 text-muted">
+              Cellular Journeys
+              <br />
+              c/o Dr. Fatima Rehman
+              <br />
+              University of North Florida
+              <br />
+              1 UNF Drive, Building 59
+              <br />
+              Jacksonville, FL 32224
+            </address>
+          </article>
+        </div>
+        <p className="mt-8 max-w-3xl text-sm text-muted">
+          Cellular Journeys, Inc. is a 501(c)(3) tax-exempt organization (EIN
+          33-4407653). Your contribution may be tax-deductible to the extent
+          allowed by law.
+        </p>
+      </section>
     </>
   );
 }

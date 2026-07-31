@@ -53,6 +53,11 @@ export function AboutPage() {
             initiatives, Cellular Journeys works to transform information into
             action.
           </p>
+          <p>
+            Cellular Journeys, Inc. is a registered 501(c)(3) tax-exempt
+            nonprofit organization (EIN 33-4407653). Contributions may be
+            tax-deductible to the extent allowed by law.
+          </p>
         </div>
       </section>
 
