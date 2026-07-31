@@ -9,7 +9,7 @@ import {
   SectionHeading,
   Seo,
 } from "../components/PageElements";
-import { documentLibrary } from "../data/content";
+import { annualReportsDriveUrl, documentLibrary } from "../data/content";
 
 const accountability = [
   "Responsible nonprofit governance",
@@ -77,7 +77,7 @@ export function GovernancePage() {
       <section className="page-shell section">
         <SectionHeading
           title="Financial Transparency"
-          intro="Public-ready governance, financial, impact, and policy documents will be linked here when approved files are available."
+          intro="Foundational governance documents are available below. Reports that are updated each year are kept in a shared drive folder."
         />
         <div className="mt-9 grid gap-7 md:grid-cols-2">
           {Object.entries(documentLibrary).map(([category, documents]) => (
@@ -118,6 +118,25 @@ export function GovernancePage() {
               </div>
             </section>
           ))}
+        </div>
+        <div className="surface mt-8 flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h3 className="display text-xl font-bold">Annual & yearly reports</h3>
+            <p className="mt-2 max-w-2xl leading-7 text-muted">
+              Documents updated each year, including annual reports and yearly
+              financial reports, are maintained in a shared drive folder so the
+              current versions are always available.
+            </p>
+          </div>
+          <a
+            className="btn btn-primary inline-flex shrink-0 items-center gap-2"
+            href={annualReportsDriveUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View annual reports
+            <ArrowSquareOut size={17} aria-hidden />
+          </a>
         </div>
       </section>
 

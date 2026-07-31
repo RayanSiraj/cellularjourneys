@@ -158,13 +158,14 @@ export type DocumentItem = {
 export const documentLibrary: Record<string, DocumentItem[]> = {
   Governance: [
     { name: "Bylaws", href: "/docs/cellular-journeys-bylaws.pdf" },
-    { name: "2025 Florida Annual Report", href: "/docs/florida-annual-report-2026.pdf" },
   ],
   Financials: [
     { name: "IRS Tax-Exempt Status Confirmation", href: "/docs/irs-tax-exempt-status.pdf" },
-    { name: "2025 Annual Financial Report", href: "/docs/annual-financial-summary-2025.pdf" },
   ],
   Policies: [
     { name: "Certificate of Liability Insurance", href: "/docs/certificate-of-liability-insurance.pdf" },
   ],
 };
+
+export const annualReportsDriveUrl =
+  "https://drive.google.com/drive/folders/12WN_wKa3IARrFJfoqLMnSqyqtLGL7NSB";

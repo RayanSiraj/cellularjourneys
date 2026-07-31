@@ -5,7 +5,7 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 const primaryNav = [
   ["About", "/about"],
   ["Platforms", "/platforms"],
-  ["Events", "/events"],
+  ["Past events", "/events"],
   ["Get Involved", "/get-involved"],
   ["Internship", "/internship"],
   ["Governance", "/governance"],

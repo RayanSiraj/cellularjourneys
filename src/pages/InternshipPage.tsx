@@ -572,6 +572,33 @@ function ConsentForm() {
   );
 }
 
+const cohortPhotos = [
+  {
+    src: "/images/in-cohort.webp",
+    alt: "Cellular Journeys summer interns working together around a table.",
+  },
+  {
+    src: "/images/in-worksession.webp",
+    alt: "Interns collaborating during a summer program work session.",
+  },
+  {
+    src: "/images/in-group.webp",
+    alt: "Cellular Journeys summer internship cohort gathered as a group.",
+  },
+  {
+    src: "/images/in-welcome.webp",
+    alt: "Hand-drawn welcome board greeting the Cellular Journeys interns.",
+  },
+  {
+    src: "/images/in-shirts.webp",
+    alt: "Cellular Journeys branded shirts prepared for the intern cohort.",
+  },
+  {
+    src: "/images/in-poster.webp",
+    alt: "Cancer-prevention education poster created during the internship.",
+  },
+] as const;
+
 export function InternshipPage() {
   return (
     <>
@@ -609,6 +636,27 @@ export function InternshipPage() {
             developed at Emory University and acquired by Cellular Journeys
             Inc. in September 2025.
           </p>
+        </div>
+      </section>
+
+      <section className="border-y border-[var(--line)] bg-[var(--surface-soft)]">
+        <div className="page-shell section">
+          <SectionHeading
+            title="Summer 2026 Cohort"
+            intro="Highlights from our first summer high school internship cohort."
+          />
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {cohortPhotos.map((photo) => (
+              <figure className="highlight-card" key={photo.src}>
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
