@@ -60,13 +60,25 @@ export function DonatePage() {
             <div>
               <a
                 className="btn btn-primary inline-flex items-center gap-2"
-                href="https://www.paypal.com/ncp/payment/WQT7X8JPZTDDA"
+                href="https://www.paypal.com/donate/?hosted_button_id=45T4RGFHRG34E"
                 target="_blank"
                 rel="noreferrer"
               >
                 Donate with PayPal
                 <ArrowSquareOut size={18} aria-hidden />
               </a>
+            </div>
+            <div className="mt-2 flex items-center gap-4">
+              <img
+                src="/images/paypal-donate-qr.png"
+                alt="QR code linking to the Cellular Journeys PayPal donation page"
+                width="120"
+                height="120"
+                className="h-28 w-28 shrink-0 rounded-[var(--radius-control)] bg-white p-2"
+              />
+              <p className="text-sm text-muted">
+                Or scan this QR code with your phone camera to donate.
+              </p>
             </div>
           </article>
           <article className="surface flex flex-col gap-4 p-7">
