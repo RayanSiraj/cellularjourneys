@@ -31,12 +31,12 @@ export function PageHeader({
 }) {
   return (
     <header className="border-b border-[var(--line)] bg-[var(--surface-soft)]">
-      <div className="page-shell py-16 md:py-20">
-        <h1 className="display max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
+      <div className="page-shell py-8 md:py-10">
+        <h1 className="display max-w-4xl text-4xl font-bold leading-tight md:text-5xl">
           {title}
         </h1>
-        <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">{intro}</p>
-        {children && <div className="mt-7 flex flex-wrap gap-3">{children}</div>}
+        <p className="mt-3 max-w-3xl text-lg leading-7 text-muted">{intro}</p>
+        {children && <div className="mt-5 flex flex-wrap gap-3">{children}</div>}
       </div>
     </header>
   );

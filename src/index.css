@@ -112,12 +112,12 @@ a {
 }
 
 .section {
-  padding-block: 4.5rem;
+  padding-block: 3.5rem;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-block: 6rem;
+    padding-block: 4.5rem;
   }
 }
 
