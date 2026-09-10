@@ -252,13 +252,13 @@ export function GetInvolvedPage() {
                   accept="image/jpeg,image/png,image/webp,application/pdf"
                   helper="Accepted formats: JPG, PNG, WebP, or PDF. Maximum 4 MB."
                 />
-                <label className="flex items-start gap-3 rounded-lg border border-[var(--line)] p-4">
+                <label className="flex items-start gap-3 rounded-[var(--radius-control)] border border-[var(--line)] p-4">
                   <input
                     type="checkbox"
                     name="mediaConsent"
                     value="I consent to review of the uploaded media"
                     required
-                    className="mt-1 size-4 accent-[#234c7c]"
+                    className="mt-1 size-4"
                   />
                   <span>
                     I consent to Cellular Journeys reviewing the submitted story

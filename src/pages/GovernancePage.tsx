@@ -9,7 +9,7 @@ import {
   SectionHeading,
   Seo,
 } from "../components/PageElements";
-import { documentLibrary } from "../data/content";
+import { annualReportsDriveUrl, documentLibrary } from "../data/content";
 
 const accountability = [
   "Responsible nonprofit governance",
@@ -52,23 +52,6 @@ export function GovernancePage() {
         intro="Cellular Journeys is committed to accountability, responsible stewardship, accurate information, and ethical decision-making."
       />
 
-      <section className="page-shell section">
-        <SectionHeading title="Our Commitment to Accountability" />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {accountability.map((item) => (
-            <div className="surface flex gap-4 p-5" key={item}>
-              <ShieldCheck
-                size={25}
-                weight="duotone"
-                className="shrink-0 text-[var(--brand)]"
-                aria-hidden
-              />
-              <p className="font-bold leading-6">{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="border-y border-[var(--line)] bg-[var(--surface)]">
         <div className="page-shell section">
           <SectionHeading
@@ -78,7 +61,7 @@ export function GovernancePage() {
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {boardOversight.map((item) => (
               <p
-                className="rounded-lg border-l-4 border-[var(--brand)] bg-[var(--surface-soft)] px-5 py-4 font-bold"
+                className="research-note font-bold"
                 key={item}
               >
                 {item}
@@ -94,11 +77,11 @@ export function GovernancePage() {
       <section className="page-shell section">
         <SectionHeading
           title="Financial Transparency"
-          intro="Public-ready governance, financial, impact, and policy documents will be linked here when approved files are available."
+          intro="Foundational governance documents are available below. Reports that are updated each year are kept in a shared drive folder."
         />
         <div className="mt-9 grid gap-7 md:grid-cols-2">
           {Object.entries(documentLibrary).map(([category, documents]) => (
-            <section className="surface p-6" key={category}>
+            <section className="document-group" key={category}>
               <h3 className="display text-2xl font-bold">{category}</h3>
               <div className="mt-5 grid gap-4">
                 {documents.map((document) => (
@@ -119,8 +102,10 @@ export function GovernancePage() {
                       <a
                         className="brand-link inline-flex items-center gap-1 font-bold"
                         href={document.href}
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        Download
+                        View
                         <ArrowSquareOut size={17} aria-hidden />
                       </a>
                     ) : (
@@ -134,11 +119,30 @@ export function GovernancePage() {
             </section>
           ))}
         </div>
+        <div className="surface mt-8 flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h3 className="display text-xl font-bold">Annual & yearly reports</h3>
+            <p className="mt-2 max-w-2xl leading-7 text-muted">
+              Documents updated each year, including annual reports and yearly
+              financial reports, are maintained in a shared drive folder so the
+              current versions are always available.
+            </p>
+          </div>
+          <a
+            className="btn btn-primary inline-flex shrink-0 items-center gap-2"
+            href={annualReportsDriveUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View annual reports
+            <ArrowSquareOut size={17} aria-hidden />
+          </a>
+        </div>
       </section>
 
       <section className="border-y border-[var(--line)] bg-[var(--surface-soft)]">
         <div className="page-shell section grid gap-8 md:grid-cols-2">
-          <article className="surface p-7">
+          <article className="policy-item">
             <h2 className="display text-3xl font-bold">Annual Impact Reports</h2>
             <p className="mt-4 leading-7 text-muted">
               Future reports will describe educational programs, internships,
@@ -146,7 +150,7 @@ export function GovernancePage() {
               figures are published until they are verified and approved.
             </p>
           </article>
-          <article className="surface p-7">
+          <article className="policy-item">
             <h2 className="display text-3xl font-bold">
               Conflict of Interest Policy
             </h2>
@@ -156,7 +160,7 @@ export function GovernancePage() {
               added when supplied.
             </p>
           </article>
-          <article className="surface p-7">
+          <article className="policy-item">
             <h2 className="display text-3xl font-bold">
               Diversity, Equity, Inclusion, and Respect
             </h2>
@@ -166,7 +170,7 @@ export function GovernancePage() {
               supplied.
             </p>
           </article>
-          <article className="surface p-7">
+          <article className="policy-item">
             <h2 className="display text-3xl font-bold">
               Stewardship of Donations
             </h2>
@@ -176,6 +180,23 @@ export function GovernancePage() {
               ))}
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="page-shell section">
+        <SectionHeading title="Our Commitment to Accountability" />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {accountability.map((item) => (
+            <div className="accountability-item" key={item}>
+              <ShieldCheck
+                size={25}
+                weight="duotone"
+                className="shrink-0 text-[var(--brand)]"
+                aria-hidden
+              />
+              <p className="font-bold leading-6">{item}</p>
+            </div>
+          ))}
         </div>
       </section>
 

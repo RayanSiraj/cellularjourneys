@@ -1,4 +1,4 @@
-import type { Icon } from "@phosphor-icons/react";
+import { ArrowRight, type Icon } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -30,13 +30,13 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <header className="border-b border-[var(--line)] bg-[var(--surface-soft)]">
-      <div className="page-shell py-8 md:py-10">
-        <h1 className="display max-w-4xl text-4xl font-bold leading-tight md:text-5xl">
-          {title}
-        </h1>
-        <p className="mt-3 max-w-3xl text-lg leading-7 text-muted">{intro}</p>
-        {children && <div className="mt-5 flex flex-wrap gap-3">{children}</div>}
+    <header className="page-header">
+      <div className="page-shell">
+        <div className="page-header__inner">
+          <h1 className="display">{title}</h1>
+          <p className="text-muted">{intro}</p>
+          {children && <div className="mt-5 flex flex-wrap gap-3">{children}</div>}
+        </div>
       </div>
     </header>
   );
@@ -50,11 +50,9 @@ export function SectionHeading({
   intro?: string;
 }) {
   return (
-    <div className="max-w-3xl">
-      <h2 className="display text-3xl font-bold leading-tight md:text-4xl">
-        {title}
-      </h2>
-      {intro && <p className="mt-4 text-lg leading-8 text-muted">{intro}</p>}
+    <div className="section-heading">
+      <h2 className="display">{title}</h2>
+      {intro && <p className="text-muted">{intro}</p>}
     </div>
   );
 }
@@ -71,18 +69,17 @@ export function IconCard({
   action?: { label: string; to: string };
 }) {
   return (
-    <article className="surface flex h-full flex-col p-6">
-      <IconComponent
-        size={30}
-        weight="duotone"
-        className="text-[var(--brand)]"
-        aria-hidden
-      />
-      <h3 className="mt-5 text-xl font-bold">{title}</h3>
-      <div className="mt-3 flex-1 leading-7 text-muted">{children}</div>
+    <article className="icon-card">
+      <div className="icon-card__heading">
+        <span className="icon-card__icon">
+          <IconComponent size={24} weight="duotone" aria-hidden />
+        </span>
+        <h3>{title}</h3>
+      </div>
+      <div className="icon-card__body">{children}</div>
       {action && (
-        <Link className="btn btn-secondary mt-6 self-start" to={action.to}>
-          {action.label}
+        <Link className="inline-action mt-5 self-start" to={action.to}>
+          {action.label} <ArrowRight size={18} aria-hidden />
         </Link>
       )}
     </article>
@@ -99,9 +96,9 @@ export function Callout({
   action?: ReactNode;
 }) {
   return (
-    <aside className="surface bg-[var(--surface-soft)] p-6 md:p-9">
-      <h2 className="display text-3xl font-bold">{title}</h2>
-      <div className="mt-4 max-w-3xl leading-7 text-muted">{children}</div>
+    <aside className="callout">
+      <h2 className="display">{title}</h2>
+      <div className="callout__body">{children}</div>
       {action && <div className="mt-6 flex flex-wrap gap-3">{action}</div>}
     </aside>
   );

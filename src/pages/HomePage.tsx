@@ -37,8 +37,8 @@ const gatewayDestinations: GatewayDestination[] = [
     external: true,
   },
   {
-    title: "Programs & events",
-    description: "Upcoming education and community programs",
+    title: "Programs & past events",
+    description: "Education, outreach, and community highlights",
     href: "/events",
     icon: CalendarBlank,
   },
@@ -56,7 +56,7 @@ const gatewayDestinations: GatewayDestination[] = [
   },
   {
     title: "Support our work",
-    description: "Ways to help sustain the mission",
+    description: "Donate online or learn about ways to give",
     href: "/donate",
     icon: HandHeart,
   },
@@ -131,15 +131,13 @@ export function HomePage() {
         title="Cancer education and scientific literacy"
         description="Cellular Journeys is a nonprofit advancing cancer education, scientific literacy, research awareness, and community impact."
       />
-      <section className="page-shell grid items-center gap-8 py-8 md:grid-cols-[1fr_0.9fr] md:py-10">
-        <div className="max-w-xl">
-          <p className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--brand)]">
+      <section className="home-hero page-shell">
+        <div className="home-hero__copy">
+          <p className="home-hero__kicker">
             Learn. Create. Inspire. Impact.
           </p>
-          <h1 className="display mt-3 text-5xl font-bold leading-[1.03] md:text-6xl">
-            Start your journey.
-          </h1>
-          <p className="mt-4 max-w-lg text-lg leading-7 text-muted">
+          <h1 className="display">Start your journey.</h1>
+          <p className="home-hero__mission">
             Explore trusted cancer and biology education, find programs, or
             take action with Cellular Journeys.
           </p>
@@ -152,15 +150,16 @@ export function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="cell-window h-64 md:h-96">
-          <img
-            src="/images/cellular-journeys-hero.webp"
-            alt=""
-            width="1536"
-            height="1024"
-            fetchPriority="high"
-            className="h-full w-full object-cover"
-          />
+        <div className="specimen-stage">
+          <div className="brand-lens">
+            <img
+              src="/images/cellular-journeys-logo.webp"
+              alt="Cellular Journeys"
+              width="1200"
+              height="561"
+              fetchPriority="high"
+            />
+          </div>
         </div>
       </section>
 
@@ -190,18 +189,18 @@ export function HomePage() {
             aria-hidden
           />
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--brand)]">
-              Featured event
+            <p className="utility text-xs font-semibold uppercase text-[var(--brand)]">
+              Recent events
             </p>
             <h2 className="display mt-1 text-3xl font-bold">
-              Cancer Awareness Fair
+              Community education in action
             </h2>
             <p className="mt-2 leading-7 text-muted">
-              July 18, 2026 · Jacksonville, Florida
+              See photos and highlights from Cellular Journeys programs.
             </p>
           </div>
           <Link className="btn btn-secondary md:justify-self-end" to="/events">
-            Event details
+            View past events
           </Link>
         </div>
       </section>
