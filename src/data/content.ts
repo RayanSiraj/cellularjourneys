@@ -160,6 +160,18 @@ export const documentLibrary: Record<string, DocumentItem[]> = {
     { name: "Bylaws", href: "/docs/cellular-journeys-bylaws.pdf" },
   ],
   Financials: [
+    {
+      name: "YTD Monthly Receipts & Expenses Report (2026)",
+      href: "/docs/cellular-journeys-ytd-monthly-receipts-expenses-2026.pdf",
+    },
+    {
+      name: "Monthly Financial Report (2025–2026)",
+      href: "/docs/cellular-journeys-monthly-financial-report-2025-2026.pdf",
+    },
+    {
+      name: "Statement of Activities (2025)",
+      href: "/docs/cellular-journeys-statement-of-activities-2025.pdf",
+    },
     { name: "IRS Tax-Exempt Status Confirmation", href: "/docs/irs-tax-exempt-status.pdf" },
   ],
   Policies: [
