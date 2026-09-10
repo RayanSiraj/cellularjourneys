@@ -48,7 +48,7 @@ export function DonatePage() {
                 alt="QR code linking to the Cellular Journeys PayPal donation page"
                 width="120"
                 height="120"
-                className="h-28 w-28 shrink-0 rounded-lg bg-white p-2"
+                className="h-28 w-28 shrink-0 rounded-[var(--radius-control)] bg-white p-2"
               />
               <p className="text-sm text-muted">
                 Or scan this QR code with your phone camera to donate.
@@ -90,9 +90,7 @@ export function DonatePage() {
           <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {waysToGive.map((item, index) => (
               <article
-                className={`surface p-6 ${
-                  index === 0 || index === 6 ? "bg-[var(--surface-soft)]" : ""
-                }`}
+                className={`give-item${index === 0 || index === 6 ? " featured" : ""}`}
                 key={item}
               >
                 <HandHeart

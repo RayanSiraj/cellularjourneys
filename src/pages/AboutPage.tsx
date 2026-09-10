@@ -1,4 +1,4 @@
-import { UserCircle } from "@phosphor-icons/react";
+import { ArrowDown } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import {
   Callout,
@@ -27,6 +27,15 @@ export function AboutPage() {
 
       <section className="page-shell section">
         <SectionHeading title="Who We Are" />
+        <p className="mt-4">
+          <a
+            className="brand-link inline-flex items-center gap-1 font-bold"
+            href="#board-of-directors"
+          >
+            Meet our Board of Directors
+            <ArrowDown size={16} aria-hidden />
+          </a>
+        </p>
         <div className="mt-7 max-w-4xl space-y-5 text-lg leading-8 text-muted">
           <p>
             Cellular Journeys is a nonprofit organization dedicated to
@@ -44,6 +53,11 @@ export function AboutPage() {
             initiatives, Cellular Journeys works to transform information into
             action.
           </p>
+          <p>
+            Cellular Journeys, Inc. is a registered 501(c)(3) tax-exempt
+            nonprofit organization (EIN 33-4407653). Contributions may be
+            tax-deductible to the extent allowed by law.
+          </p>
         </div>
       </section>
 
@@ -55,7 +69,7 @@ export function AboutPage() {
               {missionActions.map((item) => (
                 <p
                   key={item}
-                  className="rounded-lg border-l-4 border-[var(--brand)] bg-[var(--surface-soft)] px-5 py-4 leading-7"
+                  className="research-note"
                 >
                   {item}
                 </p>
@@ -75,7 +89,7 @@ export function AboutPage() {
 
       <section className="page-shell section">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="surface bg-[var(--surface-soft)] p-7 md:p-10">
+          <div className="vision-panel">
             <SectionHeading title="Our Vision" />
             <p className="mt-5 text-xl leading-9 text-muted">
               A world where every individual has access to trustworthy health
@@ -88,7 +102,7 @@ export function AboutPage() {
             <h2 className="display text-3xl font-bold">Our Values</h2>
             <div className="mt-5 grid grid-cols-2 gap-3">
               {values.map((value) => (
-                <div key={value} className="surface p-4">
+                <div key={value} className="value-item">
                   <h3 className="font-bold">{value}</h3>
                   <p className="mt-2 text-sm text-muted">
                     Description coming soon.
@@ -100,29 +114,28 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--line)] bg-[var(--surface-soft)]">
+      <section
+        id="board-of-directors"
+        className="scroll-mt-24 border-y border-[var(--line)] bg-[var(--surface-soft)]"
+      >
         <div className="page-shell section">
           <SectionHeading
             title="Board of Directors"
             intro="The board guides organizational strategy, education, community outreach, and the long-term growth of Cellular Journeys."
           />
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {boardMembers.map((member, index) => (
-              <article
-                key={member.name}
-                className={`surface p-6 ${
-                  index === 0 ? "md:col-span-2 md:grid md:grid-cols-[auto_1fr] md:gap-7" : ""
-                }`}
-              >
-                {/* TODO(client): replace the neutral avatar with a real board headshot. */}
-                <UserCircle
-                  size={72}
-                  weight="duotone"
-                  className="shrink-0 text-[var(--brand)]"
-                  aria-label="Headshot not yet provided"
+          <div className="board-grid mt-10">
+            {boardMembers.map((member) => (
+              <article key={member.name} className="board-card">
+                <img
+                  className="board-photo"
+                  src={member.photo}
+                  alt={`Portrait of ${member.name}`}
+                  width="600"
+                  height="600"
+                  loading="lazy"
                 />
                 <div>
-                  <h3 className="mt-4 text-xl font-bold md:mt-0">{member.name}</h3>
+                  <h3 className="text-xl font-bold">{member.name}</h3>
                   <p className="mt-1 font-bold text-[var(--brand-strong)]">
                     {member.title}
                   </p>

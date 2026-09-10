@@ -15,26 +15,31 @@ export const boardMembers = [
     name: "Dr. Fatima Rehman, PhD",
     title: "Director and President",
     bio: "Molecular and cellular biologist, educator, cancer researcher, and science communicator; faculty member in the Department of Biology at the University of North Florida. Oversees organizational strategy, educational initiatives, community outreach, and the growth of CancerQuest.",
+    photo: "/images/board-fatima-rehman.webp",
   },
   {
     name: "Dr. Gregg Orloff, PhD",
     title: "Director",
     bio: "Founder of CancerQuest; longtime educator and advocate for cancer education whose vision helped establish one of the world's most widely used cancer education platforms.",
+    photo: "/images/board-gregg-orloff.webp",
   },
   {
     name: "Sumra Rathore, MD",
     title: "Director",
     bio: "Focus on community engagement, education, and organizational development.",
+    photo: "/images/board-sumra-rathore.webp",
   },
   {
     name: "Farah Malik, MD",
     title: "Director",
     bio: "Experience in community outreach, strategic planning, and organizational growth.",
+    photo: "/images/board-farah.webp",
   },
   {
     name: "Madiha Iqbal, MD",
     title: "Director",
     bio: "Physician specializing in hematology and oncology; brings clinical expertise and a patient-centered perspective.",
+    photo: "/images/board-madiha-iqbal.webp",
   },
 ] as const;
 
@@ -150,33 +155,17 @@ export type DocumentItem = {
   href?: string;
 };
 
-// TODO(client): add approved public files and their final asset filenames.
 export const documentLibrary: Record<string, DocumentItem[]> = {
   Governance: [
-    { name: "Board of Directors List" },
-    { name: "Bylaws" },
-    { name: "Conflict of Interest Policy" },
-    { name: "Strategic Plan" },
-    { name: "Florida Annual Report" },
+    { name: "Bylaws", href: "/docs/cellular-journeys-bylaws.pdf" },
   ],
   Financials: [
-    { name: "IRS Determination Letter" },
-    { name: "IRS Tax-Exempt Status Confirmation" },
-    { name: "Annual Financial Report" },
-    { name: "Annual Balance Sheet" },
-    { name: "Form 990" },
-  ],
-  Impact: [
-    { name: "Annual Impact Report" },
-    { name: "Internship Program Outcomes" },
-    { name: "Community Outreach Metrics" },
-    { name: "CancerQuest Reach and Analytics" },
-    { name: "BiologyBasics Reach and Analytics" },
+    { name: "IRS Tax-Exempt Status Confirmation", href: "/docs/irs-tax-exempt-status.pdf" },
   ],
   Policies: [
-    { name: "Privacy Policy" },
-    { name: "Website Terms of Use" },
-    { name: "Volunteer Policies" },
-    { name: "Certificate of Liability Insurance" },
+    { name: "Certificate of Liability Insurance", href: "/docs/certificate-of-liability-insurance.pdf" },
   ],
 };
+
+export const annualReportsDriveUrl =
+  "https://drive.google.com/drive/folders/12WN_wKa3IARrFJfoqLMnSqyqtLGL7NSB";
