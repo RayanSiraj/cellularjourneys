@@ -34,7 +34,7 @@ export function DonatePage() {
             <div>
               <a
                 className="btn btn-primary inline-flex items-center gap-2"
-                href="https://www.paypal.com/donate/?hosted_button_id=45T4RGFHRG34E"
+                href="https://www.paypal.com/ncp/payment/WQT7X8JPZTDDA"
                 target="_blank"
                 rel="noreferrer"
               >
